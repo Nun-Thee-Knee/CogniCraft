@@ -25,7 +25,7 @@ def generate_MCQ(number, topic):
   with open("data", "w") as f:
     f.write(data)
   with open("data") as f:
-      data = f.read()
+    data = f.read()
   data = data.split("\n")
   while '' in data:
     data.remove('')
@@ -35,8 +35,13 @@ def generate_MCQ(number, topic):
     "(c)": 2,
     "(d)": 3
   }
+  n = 0
+  while True:
+    if "1. " in data[n]:
+      break
+    n = n + 1
   MCQ = []
-  data = data[2:]
+  data = data[n:]
   s = 0
   l = 6
   while l <= len(data):
@@ -45,7 +50,10 @@ def generate_MCQ(number, topic):
       question = Question[0].split(". ")[1].replace("**", "")
       options = Question[1:5]
       options = [op.strip().split(") ")[1] for op in options]
-      answer = choices[str(Question[5].strip().split(": ")[1].replace("**", ""))]
+      answer = str(Question[5].strip().split(": ")[1].replace("**", ""))
+      if ") " in answer:
+        answer = answer.split(") ")[0] + ")"
+      answer = choices[answer]
       Entry = {
         "Question": question,
         "Options": options,
@@ -56,4 +64,4 @@ def generate_MCQ(number, topic):
       pass
     s += 6
     l += 6
-    return MCQ
+  return MCQ
