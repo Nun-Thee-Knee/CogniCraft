@@ -15,7 +15,7 @@ def fetchData():
         return jsonify(MCQ)
 
 
-@app.route("/upload", methods=["POST", "GET"])
+@app.route("/", methods=["POST", "GET"])
 def uploadPDF():
     if request.method == "POST":
         if 'pdf_file' not in request.files:
