@@ -53,7 +53,7 @@ export default async function Home() {
             >
               {session ? "Sign out" : "Sign in"}
             </Link>
-            <Link href="/dest">
+            <Link href="/check">
             <button>Click Me</button>
             </Link>
           </div>
