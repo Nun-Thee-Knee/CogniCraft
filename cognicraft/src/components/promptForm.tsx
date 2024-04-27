@@ -15,50 +15,70 @@ import {
 } from "./ui/form"
 import { Input } from "./ui/input"
 
-const promptFormSchema = z.object({
-  prompt: z.string().min(2,{
-    message: "Prompt must be of atleast 2 characters"
-  }).max(100,{
-    message: "Prompt is expected to be less than 100 characters"
-  }),
-  number: z.number()
+const formSchema = z.object({
+  topic: z.string().min(2).max(50),
+  number: z.number().positive()
 })
 
-const PromptForm = () => {
-  const form = useForm<z.infer<typeof promptFormSchema>>({
-    resolver: zodResolver(promptFormSchema),
+
+const promptForm = () => {
+  const form = useForm<z.infer<typeof formSchema>>({
+    resolver: zodResolver(formSchema),
     defaultValues: {
-      prompt: "",
+      topic: "",
+      number: 10
     },
   })
-  function onSubmit(values: z.infer<typeof promptFormSchema>) {
-    // Do something with the form values.
-    // ✅ This will be type-safe and validated.
-    console.log(values)
+  async function onSubmit(values: z.infer<typeof formSchema>) {
+    const body = {
+      topic: values.topic,
+      number: values.number
+    }
+    const response = await fetch("https://cognicraft.onrender.com/data",{
+      method: 'POST',
+      body: body
+    });
+    const data = await response.json;
   }
   return (
     <Form {...form}>
-    <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+      <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
       <FormField
-        control={form.control}
-        name="prompt"
-        render={({ field }) => (
-          <FormItem>
-            <div className="flex gap-2 mb-3 flex-row">
-            <FormControl>
-              <Input placeholder="shadcn" {...field} />
-            </FormControl>
-            <FormDescription>
-            <Button variant="secondary" type="submit">Submit</Button>
-            </FormDescription>
-            </div>
-            <FormMessage />
-          </FormItem>
-        )}
-      />
-    </form>
-  </Form>
+          control={form.control}
+          name="topic"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>Username</FormLabel>
+              <FormControl>
+                <Input placeholder="shadcn" {...field} />
+              </FormControl>
+              <FormDescription>
+                This is your public display name.
+              </FormDescription>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+      <FormField
+          control={form.control}
+          name="number"
+          render={({ field }) => (
+            <FormItem>
+              <FormLabel>Number</FormLabel>
+              <FormControl>
+                <Input placeholder="shadcn" {...field} />
+              </FormControl>
+              <FormDescription>
+                This is your public display name.
+              </FormDescription>
+              <FormMessage />
+            </FormItem>
+          )}
+        />
+        <Button type="submit">Submit</Button>
+      </form>
+    </Form>
   )
 }
 
-export default PromptForm
+export default promptForm

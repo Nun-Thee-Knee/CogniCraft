@@ -1,9 +1,10 @@
 from flask import Flask, jsonify, request, render_template
 from OpenAI import generate_MCQ
 from OCR import pdf_to_text
+from flask_cors import CORS
 import Gemini
 app = Flask(__name__)
-
+CORS(app)
 
 @app.route("/data", methods=["POST", "GET"])
 def fetchData():
