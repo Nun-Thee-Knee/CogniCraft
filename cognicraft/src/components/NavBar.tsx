@@ -10,15 +10,24 @@ import {
   NavigationMenuViewport,
   navigationMenuTriggerStyle
 } from "./ui/navigation-menu";
+import Image from "next/image";
 
 const NavBar = () => {
   return (
-    <div className="bg-black">
+    <div className="bg-black p-5">
       <NavigationMenu>
         <NavigationMenuList>
           <NavigationMenuItem>
+          <div className="flex ml-10">
+          <div className="flex justify-center items-center">
+          <h1 className="text-white font-bold">CogniCraft</h1>
+          </div>
+          <Image width={50} height={50} src="/cognicraft.png" alt='brain'/>
+          </div>
+          </NavigationMenuItem>
+          <NavigationMenuItem>
             <NavigationMenuTrigger className={navigationMenuTriggerStyle()}>
-                <h1 className="text-white">New</h1>
+                <h1>New</h1>
             </NavigationMenuTrigger>
             <NavigationMenuContent className="bg-black">
               <NavigationMenuLink className="bg-black">
