@@ -1,4 +1,7 @@
 "use client";
+import { Avatar, AvatarFallback, AvatarImage } from "./ui/avatar";
+import { Button } from "./ui/button";
+import { Popover, PopoverContent, PopoverTrigger } from "./ui/popover";
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -8,47 +11,64 @@ import {
   NavigationMenuList,
   NavigationMenuTrigger,
   NavigationMenuViewport,
-  navigationMenuTriggerStyle
+  navigationMenuTriggerStyle,
 } from "./ui/navigation-menu";
 import Image from "next/image";
 
 const NavBar = () => {
   return (
-    <div className="bg-black p-5">
-      <NavigationMenu>
-        <NavigationMenuList>
-          <NavigationMenuItem>
-          <div className="flex ml-10">
-          <div className="flex justify-center items-center">
-          <h1 className="text-white font-bold">CogniCraft</h1>
-          </div>
-          <Image width={50} height={50} src="/cognicraft.png" alt='brain'/>
-          </div>
-          </NavigationMenuItem>
-          <NavigationMenuItem>
-            <NavigationMenuTrigger className={navigationMenuTriggerStyle()}>
-                <h1>New</h1>
-            </NavigationMenuTrigger>
-            <NavigationMenuContent className="bg-black">
-              <NavigationMenuLink className="bg-black">
-                <div className="bg-black text-white h-96 w-96">
-                    link
+    <div className="flex items-center justify-between bg-black px-10 py-5">
+      <div id="logo" className="flex-grow">
+        <NavigationMenu>
+          <NavigationMenuList>
+            <NavigationMenuItem>
+              <div className="flex">
+                <div className="flex items-center justify-center">
+                  <h1 className="text-xl font-bold text-white">CogniCraft</h1>
                 </div>
-              </NavigationMenuLink>
-            </NavigationMenuContent>
-          </NavigationMenuItem>
-          <NavigationMenuItem>
-            <NavigationMenuTrigger>Item Two</NavigationMenuTrigger>
-            <NavigationMenuContent>
-              <NavigationMenuLink>
-              <div className="bg-white h-96 w-96">
-                    link
+              </div>
+            </NavigationMenuItem>
+          </NavigationMenuList>
+        </NavigationMenu>
+      </div>
+      <div id="auth" className="flex justify-end">
+        <NavigationMenu>
+          <NavigationMenuList>
+            <NavigationMenuItem>
+              <div className="flex">
+                <div className="flex items-center justify-center gap-5">
+                  <Popover>
+                    <PopoverTrigger>
+                      <Avatar>
+                        <AvatarImage
+                          src="https://github.com/shadcn.png"
+                          alt="@shadcn"
+                        />
+                        <AvatarFallback>CN</AvatarFallback>
+                      </Avatar>
+                    </PopoverTrigger>
+                    <PopoverContent>
+                      <div
+                        id="user"
+                        className="flex flex-col items-start justify-center gap-2 p-5"
+                      >
+                        <h1>Username: </h1>
+                        <h1>Email: </h1>
+                        <center>
+                          <Button>Logout</Button>
+                        </center>
+                      </div>
+                    </PopoverContent>
+                  </Popover>
+
+                  <Button variant="default">Signin</Button>
+                  <Button variant="default">Signup</Button>
                 </div>
-              </NavigationMenuLink>
-            </NavigationMenuContent>
-          </NavigationMenuItem>
-        </NavigationMenuList>
-      </NavigationMenu>
+              </div>
+            </NavigationMenuItem>
+          </NavigationMenuList>
+        </NavigationMenu>
+      </div>
     </div>
   );
 };
