@@ -1,16 +1,11 @@
 import React from "react";
-import Container from "~/components/container";
+import Container, {containerData} from "~/components/container";
 import NavBar from "~/components/NavBar";
 import { Button } from "~/components/ui/button";
 import {getServerAuthSession} from "../../server/auth"
 import { AreaChart, Brain, BookUser } from "lucide-react";
 import Link from "next/link";
 
-type containerData = {
-  heading:string,
-  description:string,
-  icon: React.ReactNode
-}
 
 const containerContent:containerData[] = [
   {

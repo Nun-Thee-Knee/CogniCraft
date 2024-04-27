@@ -1,8 +1,10 @@
-import React from 'react'
+import PromptForm from "~/components/promptForm"
 
 const page = () => {
   return (
-    <div>page</div>
+    <div className="bg-black h-[100vh] flex justify-center items-center">
+      <PromptForm/>
+    </div>
   )
 }
 

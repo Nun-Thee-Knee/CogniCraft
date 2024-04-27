@@ -1,10 +1,11 @@
 import { Hammer } from "lucide-react"
 import React from "react"
 
-type containerData = {
+export type containerData = {
   heading:string,
   description:string,
-  icon: React.ReactNode
+  icon: React.ReactNode,
+  link?:string
 }
 
 const Container = ({heading, description, icon}:containerData) => {
