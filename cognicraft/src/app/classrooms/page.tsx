@@ -24,7 +24,7 @@ const classAddSchema = z.object({
 
 
 const classRoom = () => {
-
+  const { data: classes, isLoading } = api.class.getAll.useQuery();
   const classCreate = api.class.create.useMutation({
     onSuccess:()=>{
       console.log("Successfully added the class")
@@ -49,7 +49,7 @@ const classRoom = () => {
   }
 
   return (
-    <div className="flex flex-col gap-10 h-[100vh] items-center justify-center bg-black text-white">
+    <div className="flex flex-col gap-10 h-[100vh] items-center justify-start bg-black text-white p-10">
       <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
         <FormField
@@ -71,7 +71,17 @@ const classRoom = () => {
         <Button type="submit">Submit</Button>
       </form>
     </Form>
-      <Class title="Bitchass Class" student={90} quiz={90} code="sgfav56qw4qw4"/>
+      <div className="grid lg:grid-cols-3 md:grid-cols-2 flex-col gap-10">
+      {isLoading ? (
+      <p>Loading classes...</p>
+    ) : classes?.length === 0 ? (
+      <p>No classes found.</p>
+    ) : (
+      classes?.map((classData) => (
+       <Class title={classData.name} student={0} quiz={0} code={classData.id}/>// Replace 'id' with the actual ID field
+      ))
+    )}
+      </div>
     </div>
   );
 };
