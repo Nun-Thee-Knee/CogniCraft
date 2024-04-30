@@ -5,7 +5,8 @@ export type containerData = {
   heading:string,
   description:string,
   icon: React.ReactNode,
-  link?:string
+  link?:string,
+  id?:string
 }
 
 const Container = ({heading, description, icon}:containerData) => {

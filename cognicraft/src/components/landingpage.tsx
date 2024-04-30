@@ -1,7 +1,9 @@
+'use client'
 import { useEffect } from "react";
 import gsap from "gsap"
 import Image from "next/image";
 import { Button } from "~/components/ui/button";
+import Link from "next/link";
 
 const LandingPage = () => {
     useEffect(()=>{
@@ -26,6 +28,13 @@ const LandingPage = () => {
               gsap.to('#image', { opacity: 1, duration: 2 }); // Set opacity to 1 after animation
           }}
         );
+        gsap.fromTo(
+          '#startButton',
+          { opacity: 0, y: 0 },
+          { opacity: 1, y: 0, duration: 2, onComplete: () => {
+              gsap.to('#startButton', { opacity: 1, duration: 2 }); // Set opacity to 1 after animation
+          }}
+        );
       },[])
       return (
         <div className="bg-black flex lg:flex-row flex-col items-center justify-center h-auto lg:h-[100vh] ">
@@ -38,7 +47,9 @@ const LandingPage = () => {
             <p id="description" className="opacity-0">
             Unleash your inner quiz master with CogniCraft – where every click is a quest and every answer unlocks a new adventure. Dive into a universe of endless possibilities, where curiosity meets creation, and every question sparks excitement.
             </p>
-            <Button variant="secondary">Get Started</Button>
+            <Link href="/api/auth/signin">
+            <Button id="startButton" className="opacity-0" variant="secondary">Get Started</Button>
+            </Link>
           </div>
           <div id="image" className="opacity-0">
           <Image width={1000} height={1000} alt="gif" src="https://64.media.tumblr.com/e641d2cb453fea42f74afcedd9b83b77/tumblr_p2pwjlWYrw1w3y4ilo1_r1_500.gif"/>

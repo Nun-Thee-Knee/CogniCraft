@@ -13,6 +13,7 @@ import {
   NavigationMenuViewport,
   navigationMenuTriggerStyle,
 } from "./ui/navigation-menu";
+import Link from "next/link";
 
 type profileDetails = {
   userName?:string|null|undefined,
@@ -61,15 +62,13 @@ const NavBar = ({userName, email, image}:profileDetails) => {
                         <h1><span className="capitalize font-bold">Email:</span> {email}</h1>
                       </div>
                       <center>
-                          <Button className="mb-3">Logout</Button>
+                        <Link href="/api/auth/signout">
+                        <Button className="mb-3">Logout</Button>
+                        </Link>
                         </center>
                     </PopoverContent>
                   </Popover>
 
-                  <div className={`${userName?"hidden":""} flex gap-3`} id="auth-button">
-                  <Button variant="default">Signin</Button>
-                  <Button variant="default">Signup</Button>
-                  </div>
                 </div>
               </div>
             </NavigationMenuItem>
