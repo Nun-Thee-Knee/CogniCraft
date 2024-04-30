@@ -16,7 +16,7 @@ import {
 import { Input } from "../../components/ui/input"
 
 import Class from "~/components/class";
-import { createClassRoom } from "utils/action"
+import { api } from "~/trpc/react"
 
 const classAddSchema = z.object({
   title: z.string().min(5).max(50),
@@ -24,6 +24,16 @@ const classAddSchema = z.object({
 
 
 const classRoom = () => {
+
+  const classCreate = api.class.create.useMutation({
+    onSuccess:()=>{
+      console.log("Successfully added the class")
+    },
+    onError: (err)=>{
+      console.log("There was an error " + err);
+    }
+  })
+
   //Form Definition
   const form = useForm<z.infer<typeof classAddSchema>>({
     resolver: zodResolver(classAddSchema),
@@ -34,8 +44,8 @@ const classRoom = () => {
   function onSubmit(values: z.infer<typeof classAddSchema>) {
     // Do something with the form values.
     // ✅ This will be type-safe and validated.
-    const className = values.title
-    createClassRoom(className)
+    const name = values.title
+    classCreate.mutate({name})
   }
 
   return (
