@@ -21,7 +21,7 @@ const Quiz = () => {
   return (
     <div className="bg-black p-10 h-[100vh] lg:flex-row flex-col flex items-center justify-center gap-10 text-white">
       {containerContent.map((content)=>{
-        return <Link href={content.link}>
+        return <Link href={content.link as string}>
         <Container key={content.heading} heading={content.heading} description={content.description} icon={content.icon}/>
         </Link>
       })}

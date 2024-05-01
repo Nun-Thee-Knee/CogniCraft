@@ -21,17 +21,17 @@ import { api } from "~/trpc/react";
 const classAddSchema = z.object({
   title: z.string().min(5).max(50),
 });
-
+const classCreate = api.class.create.useMutation({
+  onSuccess: () => {
+    console.log("Successfully added the class");
+  },
+  onError: (err) => {
+    console.log("There was an error " + err);
+  },
+});
 const classRoom = () => {
   const { data: classes, isLoading } = api.class.getAll.useQuery();
-  const classCreate = api.class.create.useMutation({
-    onSuccess: () => {
-      console.log("Successfully added the class");
-    },
-    onError: (err) => {
-      console.log("There was an error " + err);
-    },
-  });
+  
 
   //Form Definition
   const form = useForm<z.infer<typeof classAddSchema>>({

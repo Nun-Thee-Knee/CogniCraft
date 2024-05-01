@@ -14,18 +14,27 @@ import {
   FormMessage,
 } from "./ui/form";
 import { Input } from "./ui/input";
+import { api } from "~/trpc/react";
 
 const formSchema = z.object({
-  topic: z.string().min(2).max(50),
-  number: z.number().positive(),
+  topic: z.string().min(2),
+  number: z.string(),
 });
 
 const promptForm = () => {
+  const quizCreate = api.quiz.create.useMutation({
+    onSuccess: () => {
+      console.log("Successfully added the class");
+    },
+    onError: (err) => {
+      console.log("There was an error " + err);
+    },
+  });
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
     defaultValues: {
       topic: "",
-      number: 10,
+      number: '10',
     },
   });
 
@@ -37,16 +46,16 @@ const promptForm = () => {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-        },
+    },
         body: JSON.stringify(postData),
       });
 
       if (!response.ok) {
         throw new Error("Network response was not ok");
       }
-
-      const data = await response.json();
-      console.log("Success:", data);
+      const data = await response.json()
+      const question = data
+      quizCreate.mutate({question})
     } catch (error) {
       console.error("Error:", error);
     }
@@ -54,19 +63,19 @@ const promptForm = () => {
   return (
     <Form {...form}>
       <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+        <div className="flex lg:flex-row flex-col gap-10">
         <FormField
           control={form.control}
           name="topic"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Username</FormLabel>
+              <div className="flex items-center justify-center gap-5">
+              <FormLabel className="text-white">Topic: </FormLabel>
               <FormControl>
-                <Input placeholder="shadcn" {...field} />
+                <Input className="text-white" placeholder="Your prompt goes here" {...field} />
               </FormControl>
-              <FormDescription>
-                This is your public display name.
-              </FormDescription>
-              <FormMessage />
+              </div>
+              <FormMessage/>
             </FormItem>
           )}
         />
@@ -75,18 +84,18 @@ const promptForm = () => {
           name="number"
           render={({ field }) => (
             <FormItem>
-              <FormLabel>Number</FormLabel>
+              <div className="flex gap-5 items-center justify-center">
+              <FormLabel className="text-white">Number: </FormLabel>
               <FormControl>
-                <Input placeholder="shadcn" {...field} />
+                <Input className="text-white" placeholder="Enter the number of question" itemType="number" {...field} />
               </FormControl>
-              <FormDescription>
-                This is your public display name.
-              </FormDescription>
+              </div>
               <FormMessage />
             </FormItem>
           )}
         />
         <Button type="submit">Submit</Button>
+        </div>
       </form>
     </Form>
   );
