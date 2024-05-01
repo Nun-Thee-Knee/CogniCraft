@@ -47,7 +47,7 @@ const NavBar = ({userName, email, image}:profileDetails) => {
                     <PopoverTrigger className={`${userName?"":"hidden"}`}>
                       <Avatar>
                         <AvatarImage
-                          src={image}
+                          src={image as string}
                           alt="@shadcn"
                         />
                         <AvatarFallback>CN</AvatarFallback>
