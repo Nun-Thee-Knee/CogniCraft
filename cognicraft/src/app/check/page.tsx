@@ -1,7 +1,20 @@
-const check = () => {
+import Link from 'next/link'
+import React from 'react'
+
+const Check = () => {
   return (
-    <div>check</div>
+    <div>
+      <Link href={{
+        pathname: "/check2",
+        query: {
+          name: "John Doe",
+          age: '18'
+        }
+      }}>
+      Go to some other page
+      </Link>
+    </div>
   )
 }
 
-export default check
+export default Check

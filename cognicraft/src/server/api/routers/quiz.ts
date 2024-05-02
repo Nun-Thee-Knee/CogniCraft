@@ -1,6 +1,4 @@
 import { z } from "zod";
-import crypto from "crypto"
-
 import {
   createTRPCRouter,
   protectedProcedure,
@@ -15,9 +13,6 @@ const questionSchema = z.object({
 
 const questionListSchema = z.array(questionSchema);
 
-function generateRandomString(length:number) {
-    return crypto.randomBytes(Math.ceil(length / 2)).toString('hex').slice(0, length);
-  }
 
 export const quizRouter = createTRPCRouter({
     getAll: protectedProcedure
@@ -30,16 +25,20 @@ export const quizRouter = createTRPCRouter({
         });
     }),
     create: protectedProcedure
-  .input(z.object({question: questionListSchema}))
+  .input(z.object({question: questionListSchema, id: z.string()}))
   .mutation(async ({ ctx, input}) => {
     return ctx.db.quizSchema.create({
       data: {
-        id: generateRandomString(10),
+        id: input.id,
         Data: input.question
       },
     });
   }),
   getLatest: protectedProcedure.query(({ ctx }) => {
-    return ctx.db.quizSchema.findFirst();
+    return ctx.db.quizSchema.findFirst({
+      orderBy: {
+        createdAt: "desc"
+      }
+    });
   }),
 })

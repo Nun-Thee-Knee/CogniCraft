@@ -64,7 +64,9 @@ const data:dataType[] = [
   }
 ]
 
-const page = () => {
+const page = ({searchParams}:{searchParams:{
+  code: string
+}}) => {
   const {data:quiz, isLoading, error} = api.quiz.getLatest.useQuery();
   const [num, setNum] = useState(0);
   const increaseNum = () => {
@@ -82,6 +84,7 @@ const page = () => {
       {quiz?.Data.length as number!==0?(
        <div className='bg-black h-auto lg:h-[100vh] text-white flex flex-col gap-10 items-center justify-center p-10'>
        <center>
+        {code}
        <h1 className='text-white text-5xl lg:text-6xl font-bold'>{quiz?.Data[num]?.Question}</h1>
        </center>
        <div className='grid flex-col lg:grid-cols-2 gap-10'>

@@ -7,7 +7,6 @@ import { Button } from "./ui/button";
 import {
   Form,
   FormControl,
-  FormDescription,
   FormField,
   FormItem,
   FormLabel,
@@ -15,19 +14,42 @@ import {
 } from "./ui/form";
 import { Input } from "./ui/input";
 import { api } from "~/trpc/react";
+import { useState } from "react";
+import { useToast } from "./ui/use-toast"
+import { Toaster } from "./ui/toaster";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
+import crypto from "crypto"
+
 
 const formSchema = z.object({
   topic: z.string().min(2),
   number: z.string(),
 });
 
+function generateRandomString(length:number) {
+  return crypto.randomBytes(Math.ceil(length / 2)).toString('hex').slice(0, length);
+}
+
 const promptForm = () => {
+  const code = generateRandomString(20);
+  const { toast } = useToast()
+  const [pending, setPending] = useState(false)
+  const [redirectURL, setURL] = useState("");
   const quizCreate = api.quiz.create.useMutation({
     onSuccess: () => {
-      console.log("Successfully added the class");
+      toast({
+        title: "Success",
+        description: "Successfully Added the Quiz",
+      })
+      setPending(false)
     },
     onError: (err) => {
-      console.log("There was an error " + err);
+      toast({
+        title: "Error",
+        description: "Action could not be completed due to error",
+      })
+      setPending(false)
     },
   });
   const form = useForm<z.infer<typeof formSchema>>({
@@ -40,7 +62,7 @@ const promptForm = () => {
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
     const postData = { topic: values.topic, number: values.number };
-
+    setPending(true)
     try {
       const response = await fetch("https://cognicraft.onrender.com/data", {
         method: "POST",
@@ -55,7 +77,9 @@ const promptForm = () => {
       }
       const data = await response.json()
       const question = data
-      quizCreate.mutate({question})
+      const id = code
+      quizCreate.mutate({question, id})
+      setURL(id)
     } catch (error) {
       console.error("Error:", error);
     }
@@ -94,9 +118,18 @@ const promptForm = () => {
             </FormItem>
           )}
         />
-        <Button type="submit">Submit</Button>
+        {pending?(<Button disabled type="submit">Submittng...</Button>):(<Button type="submit">Submit</Button>)}
         </div>
       </form>
+    <Toaster/>
+    <Link className="mt-28" href={{
+      href: "/generate-quiz/prompt-quiz-generation/quizPage/",
+      query: {
+        code: redirectURL
+      }
+    }}>
+      {redirectURL}
+      </Link>
     </Form>
   );
 };

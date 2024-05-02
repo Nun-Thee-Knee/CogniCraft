@@ -62,7 +62,7 @@ const Attributes = () => {
                   icon={containerContent[0]?.icon}
                 />
               </Link>
-              <Link id="attribute2" className="opacity-0" href="/generate-quiz">
+              <Link id="attribute2" className="opacity-0" href="/classrooms">
                 <Container
                   heading={containerContent[1]?.heading as string}
                   description={containerContent[1]?.description as string}

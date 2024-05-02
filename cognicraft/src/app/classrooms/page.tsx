@@ -18,20 +18,20 @@ import { Input } from "../../components/ui/input";
 import Class from "~/components/class";
 import { api } from "~/trpc/react";
 
-const classAddSchema = z.object({
-  title: z.string().min(5).max(50),
-});
-const classCreate = api.class.create.useMutation({
-  onSuccess: () => {
-    console.log("Successfully added the class");
-  },
-  onError: (err) => {
-    console.log("There was an error " + err);
-  },
-});
+
 const classRoom = () => {
   const { data: classes, isLoading } = api.class.getAll.useQuery();
-  
+  const classAddSchema = z.object({
+    title: z.string().min(5).max(50),
+  });
+  const classCreate = api.class.create.useMutation({
+    onSuccess: () => {
+      console.log("Successfully added the class");
+    },
+    onError: (err) => {
+      console.log("There was an error " + err);
+    },
+  });
 
   //Form Definition
   const form = useForm<z.infer<typeof classAddSchema>>({
@@ -41,8 +41,6 @@ const classRoom = () => {
     },
   });
   function onSubmit(values: z.infer<typeof classAddSchema>) {
-    // Do something with the form values.
-    // ✅ This will be type-safe and validated.
     const name = values.title;
     classCreate.mutate({ name });
   }
@@ -95,10 +93,3 @@ const classRoom = () => {
 };
 
 export default classRoom;
-
-{/* <Link
-  href={session ? "/api/auth/signout" : "/api/auth/signin"}
-  className="rounded-full bg-white/10 px-10 py-3 font-semibold no-underline transition hover:bg-white/20"
->
-  {session ? "Sign out" : "Sign in"}
-</Link>; */}
