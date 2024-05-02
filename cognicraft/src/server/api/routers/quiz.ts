@@ -34,8 +34,13 @@ export const quizRouter = createTRPCRouter({
       },
     });
   }),
-  getLatest: protectedProcedure.query(({ ctx }) => {
+  getLatest: protectedProcedure
+  .input( z.object({id:z.string()}))
+  .query(({ ctx, input }) => {
     return ctx.db.quizSchema.findFirst({
+      where:{
+        id: input.id
+      },
       orderBy: {
         createdAt: "desc"
       }
