@@ -17,6 +17,7 @@ import { api } from "~/trpc/react";
 import { redirect } from "next/navigation";
 import { Toaster } from "./ui/toaster";
 import { useToast } from "./ui/use-toast";
+import { getServerAuthSession } from "~/server/auth";
 
 type dataType = {
   Answer: number;
@@ -30,8 +31,22 @@ type optionType = {
   correctAnswer: string;
 };
 
-const QuizContent = ({ data, quizCode }: { data: dataType[], quizCode:string}) => {
+const QuizContent = ({ data, quizCode, user }: { data: dataType[], quizCode:string, user:string}) => {
   const {toast} = useToast();
+  const addUser = api.quiz.update.useMutation({
+    onSuccess: () => {
+      toast({
+        title:"Success",
+        description: "Successfully added the progress"
+      })
+    },
+    onError: () => {
+      toast({
+        title:"Error",
+        description: "Action cannot be completed due to unknown error"
+      })
+    }
+  })
   const quizDelete = api.quiz.delete.useMutation(
     {
       onSuccess: () => {
@@ -124,6 +139,12 @@ const QuizContent = ({ data, quizCode }: { data: dataType[], quizCode:string}) =
     quizDelete.mutate({id})
   }
 
+  const saveQuiz = () => {
+    const userID = user as string;
+    const id = quizCode;
+    addUser.mutate({userID, id})
+  }
+
   return (
     <div>
       <div id="quizDiv" className="flex h-auto flex-col items-center justify-center gap-10 bg-black p-10 text-white">
@@ -201,7 +222,9 @@ const QuizContent = ({ data, quizCode }: { data: dataType[], quizCode:string}) =
         <h1 className="text-slate-700 font-bold text-5xl">You have scored: {attempted[0]}/{attempted[1]}</h1>
         <h1>Do You want to save the result?</h1>
         <div className="flex gap-10">
-          <Button variant="secondary">Save</Button>
+        <Link href="/">
+          <Button onClick={()=>{saveQuiz()}} variant="secondary">Save</Button>
+          </Link>
           <Link href="/">
           <Button onClick={()=>{deleteQuiz()}} variant="destructive">Delete</Button>
           </Link>

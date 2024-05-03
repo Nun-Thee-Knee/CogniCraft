@@ -46,6 +46,19 @@ export const quizRouter = createTRPCRouter({
       }
     });
   }),
+  update:protectedProcedure
+  .input(z.object({userID: z.string(), id:z.string()}))
+  .mutation(async({ctx, input})=>{
+    return ctx.db.quizSchema.update({
+      where:{id:input.id},
+      data:{
+        AttemptedBy:{
+          push: input.userID
+        }
+      }
+    })
+  })
+  ,
   delete: protectedProcedure
   .input(z.object({id: z.string()}))
   .mutation(({ctx, input})=>{

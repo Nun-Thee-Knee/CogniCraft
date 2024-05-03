@@ -9,7 +9,7 @@ type quizData = {
     "Question": string
 }
 
-const QuizPage = ({code}:{code:string}) => {
+const QuizPage = ({code, userID}:{code:string, userID:string}) => {
     const id = code
     const {data:quiz, isLoading, error} = api.quiz.getLatest.useQuery({id});
     const [mcq, setMCQ] = useState<quizData[]>([])
@@ -28,7 +28,7 @@ const QuizPage = ({code}:{code:string}) => {
                     (mcq.length === 0)?(
                         <button onClick={()=>{setProgram(quiz?.Data as quizData[])}}>Start</button>
                     ):(
-                        <QuizContent data={mcq} quizCode={code}/>
+                        <QuizContent data={mcq} user={userID} quizCode={code}/>
                     )
                 )
             )

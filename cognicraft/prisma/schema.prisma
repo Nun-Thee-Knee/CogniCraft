@@ -55,7 +55,7 @@ model User {
     name          String?
     email         String?   @unique
     emailVerified DateTime?
-    AttemptedQuiz Json @default("{}")
+    AttemptedQuiz Json @default("[]")
     image         String?
     accounts      Account[]
     sessions      Session[]
@@ -66,7 +66,7 @@ model quizSchema {
     id String   @id @default(cuid())
     Data Json
     createdAt DateTime @default(now())
-    
+    AttemptedBy String[]
     @@unique([id])
 }
 
