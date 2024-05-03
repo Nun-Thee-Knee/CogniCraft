@@ -55,7 +55,7 @@ model User {
     name          String?
     email         String?   @unique
     emailVerified DateTime?
-    AttemptedQuiz Json @default("[]")
+    AttemptedQuiz Json[]
     image         String?
     accounts      Account[]
     sessions      Session[]
