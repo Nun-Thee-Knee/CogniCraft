@@ -28,7 +28,7 @@ const QuizPage = ({code}:{code:string}) => {
                     (mcq.length === 0)?(
                         <button onClick={()=>{setProgram(quiz?.Data as quizData[])}}>Start</button>
                     ):(
-                        <QuizContent data={mcq}/>
+                        <QuizContent data={mcq} quizCode={code}/>
                     )
                 )
             )

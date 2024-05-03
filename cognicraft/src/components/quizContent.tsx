@@ -13,6 +13,10 @@ import {
   DialogTrigger,
 } from "./ui/dialog";
 import Link from "next/link";
+import { api } from "~/trpc/react";
+import { redirect } from "next/navigation";
+import { Toaster } from "./ui/toaster";
+import { useToast } from "./ui/use-toast";
 
 type dataType = {
   Answer: number;
@@ -26,8 +30,25 @@ type optionType = {
   correctAnswer: string;
 };
 
-const QuizContent = ({ data }: { data: dataType[] }) => {
-  const [num, setNum] = useState(5);
+const QuizContent = ({ data, quizCode }: { data: dataType[], quizCode:string}) => {
+  const {toast} = useToast();
+  const quizDelete = api.quiz.delete.useMutation(
+    {
+      onSuccess: () => {
+        toast({
+          title:"Success",
+          description: "Successfully deleted the progress"
+        })
+      },
+      onError:()=> {
+        toast({
+          title:"Error",
+          description: "Action cannot be completed due to unknown error"
+        })
+      }
+    }
+  )
+  const [num, setNum] = useState(0);
   const [divNum, setDiv] = useState<number | null>();
   const [enteredData, setEnteredData] = useState<optionType[]>([]);
   const [temporaryStorage, setStorage] = useState<optionType[]>([]);
@@ -96,6 +117,11 @@ const QuizContent = ({ data }: { data: dataType[] }) => {
     quizDiv?.classList.add("hidden");
     resultDiv?.classList.remove("hidden");
     resultDiv?.classList.add("flex");
+  }
+
+  const deleteQuiz = () => {
+    const id = quizCode;
+    quizDelete.mutate({id})
   }
 
   return (
@@ -176,10 +202,13 @@ const QuizContent = ({ data }: { data: dataType[] }) => {
         <h1>Do You want to save the result?</h1>
         <div className="flex gap-10">
           <Button variant="secondary">Save</Button>
-          <Button variant="destructive">Delete</Button>
+          <Link href="/">
+          <Button onClick={()=>{deleteQuiz()}} variant="destructive">Delete</Button>
+          </Link>
         </div>
       </div>
       </center>
+      <Toaster/>
     </div>
   );
 };

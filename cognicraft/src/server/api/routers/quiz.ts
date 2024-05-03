@@ -46,4 +46,13 @@ export const quizRouter = createTRPCRouter({
       }
     });
   }),
+  delete: protectedProcedure
+  .input(z.object({id: z.string()}))
+  .mutation(({ctx, input})=>{
+    return ctx.db.quizSchema.delete({
+      where: {
+        id:  input.id
+      }
+    })
+  })
 })
