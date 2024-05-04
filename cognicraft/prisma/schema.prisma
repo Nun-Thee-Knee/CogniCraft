@@ -67,6 +67,7 @@ model quizSchema {
     Data Json
     createdAt DateTime @default(now())
     AttemptedBy String[]
+    title String @default("Some Topic")
     @@unique([id])
 }
 

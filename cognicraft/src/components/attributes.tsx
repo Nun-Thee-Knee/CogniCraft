@@ -26,7 +26,7 @@ const containerContent: containerData[] = [
     },
   ];
   
-const Attributes = () => {
+const Attributes = ({id}:{id:string}) => {
     useEffect(()=>{
         gsap.fromTo(
             '#attribute1',
@@ -69,7 +69,12 @@ const Attributes = () => {
                   icon={containerContent[1]?.icon}
                 />
               </Link>
-              <Link id="attribute3" className="opacity-0" href="/generate-quiz">
+              <Link id="attribute3" className="opacity-0" href={{
+                pathname: "/progress/"+id,
+                query: {
+                  id: id
+                }
+              }}>
                 <Container
                   heading={containerContent[2]?.heading as string}
                   description={containerContent[2]?.description as string}

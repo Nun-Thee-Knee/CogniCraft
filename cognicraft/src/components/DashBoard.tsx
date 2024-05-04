@@ -13,7 +13,7 @@ const DashBoard = async() => {
         <center>
           <Heading/>
         </center>
-        <Attributes/>
+        <Attributes id={user?.user.id as string}/>
       </div>
     </>
   )

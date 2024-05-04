@@ -37,6 +37,7 @@ const promptForm = () => {
   const { toast } = useToast();
   const [pending, setPending] = useState(false);
   const [redirectURL, setURL] = useState("");
+  const [topic, setTopic] = useState("General Question")
   const quizCreate = api.quiz.create.useMutation({
     onSuccess: () => {
       toast({
@@ -87,7 +88,9 @@ const promptForm = () => {
         setPending(false);
       } else {
         const id = code;
-        quizCreate.mutate({ question, id });
+        const title = values.topic
+        setTopic(title);
+        quizCreate.mutate({ question, id, title });
         setURL(id);
       }
     } catch (error) {
@@ -153,8 +156,9 @@ const promptForm = () => {
       className="mt-[-150px] lg:mt=[-100px]"
       href={{
         pathname: "/generate-quiz/prompt-quiz-generation/"+redirectURL,
-        query:{
-          code: redirectURL
+        query : {
+          code: redirectURL,
+          title: topic
         }
       }}
       >

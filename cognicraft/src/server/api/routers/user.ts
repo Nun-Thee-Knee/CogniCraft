@@ -11,7 +11,8 @@ const userResponse = z.object({
     quizId: z.string(),
     response: z.array(responseSchema),
     correct: z.number(),
-    total: z.number()
+    total: z.number(),
+    title: z.string()
 })
 
 export const userRouter = createTRPCRouter({
@@ -24,6 +25,15 @@ export const userRouter = createTRPCRouter({
                 AttemptedQuiz: {
                     push: input.data
                 }
+            }
+        })
+    }),
+    getProgress: protectedProcedure
+    .input(z.object({id: z.string()}))
+    .query(async({ctx, input})=>{
+        return ctx.db.user.findMany({
+            where: {
+                id: input.id
             }
         })
     })

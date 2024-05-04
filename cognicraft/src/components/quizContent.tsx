@@ -32,10 +32,12 @@ const QuizContent = ({
   data,
   quizCode,
   user,
+  topic
 }: {
   data: dataType[];
   quizCode: string;
   user: string;
+  topic:string
 }) => {
   const { toast } = useToast();
   const [num, setNum] = useState(0);
@@ -48,13 +50,15 @@ const QuizContent = ({
       const id = user;
       const quizId = quizCode;
       const response = enteredData;
-      const correct = attempted[0];
-      const total = attempted[1];
+      const correct = attempted[1];
+      const total = attempted[0];
+      const title = topic;
       const data = {
         quizId: quizId,
         response: response,
         correct: correct as number,
         total: total as number,
+        title: title
       };
       saveProgress.mutate({ data, id });
     },

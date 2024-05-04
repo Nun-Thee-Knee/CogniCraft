@@ -25,12 +25,13 @@ export const quizRouter = createTRPCRouter({
         });
     }),
     create: protectedProcedure
-  .input(z.object({question: questionListSchema, id: z.string()}))
+  .input(z.object({question: questionListSchema, id: z.string(), title:z.string()}))
   .mutation(async ({ ctx, input}) => {
     return ctx.db.quizSchema.create({
       data: {
         id: input.id,
-        Data: input.question
+        Data: input.question,
+        title: input.title
       },
     });
   }),
