@@ -51,7 +51,12 @@ const userData = ({
               {(userProgress as userProgressType)[0]?.AttemptedQuiz.map(
                 (entry) => {
                   return (
-                    <Link href="./showData">
+                    <Link href={{
+                      pathname: "./showData",
+                      query: {
+                        index: (userProgress as userProgressType)[0]?.AttemptedQuiz.indexOf(entry)
+                      }
+                    }}>
                     <AttemptedQuiz
                       quizCode={(entry as entryType).quizId}
                       quizTitle={(entry as entryType).title}

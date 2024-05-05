@@ -28,7 +28,7 @@ const UserProgress = ({searchParams}:{
             return <Link href={{
                 pathname: entry.link as string,
                 query: {
-                    userID: searchParams.id
+                    userID: searchParams.id,
                 }
             }}>
             <Container heading={entry.heading} description={entry.description} icon={entry.icon}/>
