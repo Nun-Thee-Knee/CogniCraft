@@ -2,6 +2,7 @@
 import { api } from "~/trpc/react"
 import ShowUserResponse from "./showUserResponse"
 import { Prisma } from "@prisma/client"
+import { JsonValue } from "next-auth/adapters"
 
 type responseType = {
   qNumber: number,
@@ -25,7 +26,7 @@ type quizDataType = {
 
 type quizType = {
   id: string;
-  Data: Prisma.JsonValue;
+  Data: quizDataType;
   createdAt: Date;
   AttemptedBy: string[];
   title: string;
@@ -33,16 +34,17 @@ type quizType = {
 
 const UserCorrection = ({ userData }: { userData: userResponseType }) => {
   const id = userData.quizId;
-  const { data, isLoading, error } = api.quiz.getLatest.useQuery({ id });
+  const { data:quizData, isLoading, error } = api.quiz.getLatest.useQuery({ id });
 
   return (
-    <div className="flex h-auto items-center justify-center p-10">
+    <div className="flex h-auto items-center justify-center p-12 mb-10">
       {isLoading ? (
         <h1>Loading</h1>
       ) : (
         <ShowUserResponse
           userData={userData}
-          quizData={(data as quizType).Data}
+          //@ts-ignore
+          quizData={quizData?.Data as quizDataType[]}
         />
       )}
     </div>

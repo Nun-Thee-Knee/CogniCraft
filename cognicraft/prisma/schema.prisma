@@ -79,6 +79,7 @@ model Class {
     createdBy   User   @relation(fields: [createdById], references: [id])
     createdById String
     students Json
+    Requests String[]
 
     @@unique([id])
     @@index([name])
