@@ -13,7 +13,7 @@ def generate_MCQ(number, topic):
       Answer: Option
       """
   prompt = f"Generate {number} mcqs on {topic} along with the answer in the format {format}"
-  genai.configure(api_key="AIzaSyCJOU-Bm8RGEVEfSaBdlwEG-AhSdt4DLGM")
+  genai.configure(api_key="AIzaSyC0-R9AEVVq7bd8dRIO0QxGRs6kut8r-8E")
 
   model = genai.GenerativeModel(model_name="gemini-1.5-pro-latest")
 

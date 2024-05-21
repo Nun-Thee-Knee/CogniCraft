@@ -1,0 +1,586 @@
+%PDF-1.3
+%ºß¬à
+3 0 obj
+<</Type /Page
+/Parent 1 0 R
+/Resources 2 0 R
+/MediaBox [0 0 595.2799999999999727 841.8899999999999864]
+/Contents 4 0 R
+>>
+endobj
+4 0 obj
+<<
+/Length 2901
+>>
+stream
+0.5670000000000001 w
+0 G
+BT
+/F2 18 Tf
+20.6999999999999993 TL
+0 g
+28.3464566929133888 785.1970866141732586 Td
+(Lessons) Tj
+ET
+BT
+/F2 18 Tf
+20.6999999999999993 TL
+0 g
+115.0596850393700805 785.1970866141732586 Td
+(from) Tj
+ET
+BT
+/F2 18 Tf
+20.6999999999999993 TL
+0 g
+169.1929133858267846 785.1970866141732586 Td
+(Programming) Tj
+ET
+BT
+/F2 18 Tf
+20.6999999999999993 TL
+0 g
+300.1861417322834882 785.1970866141732586 Td
+(Regrets:) Tj
+ET
+BT
+/F2 18 Tf
+20.6999999999999993 TL
+0 g
+386.8993700787401622 785.1970866141732586 Td
+(Avoiding) Tj
+ET
+BT
+/F2 18 Tf
+20.6999999999999993 TL
+0 g
+477.9325984251968293 785.1970866141732586 Td
+(Pitfalls) Tj
+ET
+BT
+/F2 18 Tf
+20.6999999999999993 TL
+0 g
+28.3464566929133888 734.1734645669291695 Td
+(for) Tj
+ET
+BT
+/F2 18 Tf
+20.6999999999999993 TL
+0 g
+66.4596850393700862 734.1734645669291695 Td
+(a) Tj
+ET
+BT
+/F2 18 Tf
+20.6999999999999993 TL
+0 g
+90.5329133858267738 734.1734645669291695 Td
+(Fulfilling) Tj
+ET
+BT
+/F2 18 Tf
+20.6999999999999993 TL
+0 g
+179.7661417322835007 734.1734645669291695 Td
+(Coding) Tj
+ET
+BT
+/F2 18 Tf
+20.6999999999999993 TL
+0 g
+255.8593700787401701 734.1734645669291695 Td
+(Career) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+28.3464566929133888 683.1498425196850803 Td
+(**Learning Notes on Programming Regrets**) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+28.3464566929133888 615.1183464566928478 Td
+(**Regret 1: Writing Too Much Code**) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+28.3464566929133888 547.086850393700729 Td
+(* Code is a liability, not an asset.) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+28.3464566929133888 513.0711023622046696 Td
+(* Focus on writing less, more efficient code.) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+28.3464566929133888 479.0553543307086102 Td
+(* Aim for simplicity, readability, and maintainability.) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+28.3464566929133888 411.0238582677164914 Td
+(**Regret 2: Not Learning to Code Earlier**) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+28.3464566929133888 342.9923622047243725 Td
+(* The sooner you start learning, the better.) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+28.3464566929133888 308.9766141732283131 Td
+(* A young brain is better at learning.) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+28.3464566929133888 274.9608661417322537 Td
+(* Don't let ageism in tech discourage you.) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+28.3464566929133888 206.9293700787401349 Td
+(**Regret 3: Not Finishing Projects**) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+28.3464566929133888 138.8978740157479024 Td
+(* Finishing projects is often harder than estimated.) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+28.3464566929133888 104.882125984251843 Td
+(* Be honest with yourself and recognize when to cut losses.) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+28.3464566929133888 70.8663779527557836 Td
+(* Completing projects is crucial for growth.) Tj
+ET
+endstream
+endobj
+5 0 obj
+<</Type /Page
+/Parent 1 0 R
+/Resources 2 0 R
+/MediaBox [0 0 595.2799999999999727 841.8899999999999864]
+/Contents 6 0 R
+>>
+endobj
+6 0 obj
+<<
+/Length 2294
+>>
+stream
+0.5670000000000001 w
+0 G
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+28.3464566929133888 813.5435433070865656 Td
+(**Regret 4: Not Getting a Computer Science Degree**) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+28.3464566929133888 745.5120472440944468 Td
+(* A degree can provide a competitive advantage for high-paying jobs.) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+28.3464566929133888 711.4962992125983874 Td
+(* However, it's not always necessary for a coding career.) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+28.3464566929133888 677.480551181102328 Td
+(* Consider the value and cost of a degree before pursuing it.) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+28.3464566929133888 609.4490551181102092 Td
+(**Regret 5: Not Investing in Bitcoin**) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+28.3464566929133888 541.4175590551180903 Td
+(* A speculative regret, but highlights the importance of financial literacy.) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+28.3464566929133888 473.3860629921259147 Td
+(**Regret 6: Not Learning Low-Level Languages Like C**) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+28.3464566929133888 405.3545669291337958 Td
+(* Understanding C provides a strong foundation for other languages.) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+28.3464566929133888 371.3388188976377364 Td
+(* It helps develop a deeper understanding of computer systems.) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+28.3464566929133888 303.3073228346455608 Td
+(**Regret 7: Using JavaScript on the Server**) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+28.3464566929133888 235.2758267716534419 Td
+(* The speaker personally finds no regrets with JavaScript on the server.) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+28.3464566929133888 201.2600787401573825 Td
+(* It provides faster development and a single language across the stack.) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+28.3464566929133888 133.2285826771652637 Td
+(**Regret 8: Grinding Leetcode**) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+28.3464566929133888 65.1970866141731449 Td
+(* Leetcode practice may be excessive for most career paths.) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+28.3464566929133888 31.1813385826770855 Td
+(* Focus on practical problem-solving over algorithmic optimization.) Tj
+ET
+endstream
+endobj
+7 0 obj
+<</Type /Page
+/Parent 1 0 R
+/Resources 2 0 R
+/MediaBox [0 0 595.2799999999999727 841.8899999999999864]
+/Contents 8 0 R
+>>
+endobj
+8 0 obj
+<<
+/Length 901
+>>
+stream
+0.5670000000000001 w
+0 G
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+28.3464566929133888 779.5277952755905062 Td
+(**Regret 9: Not Prioritizing Health**) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+28.3464566929133888 711.4962992125983874 Td
+(* Sitting in front of a computer is unhealthy.) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+28.3464566929133888 677.480551181102328 Td
+(* Implement measures to reduce risks \(e.g., standing desk, breaks, healthy diet\).) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+28.3464566929133888 609.4490551181102092 Td
+(**Regret 10: Learning to Code in the First Place**) Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+28.3464566929133888 541.4175590551180903 Td
+(* A philosophical regret, expressing concerns about the impact of technology and the lack of "real") Tj
+ET
+BT
+/F1 12 Tf
+13.7999999999999989 TL
+0 g
+28.3464566929133888 507.4018110236219741 Td
+(work.) Tj
+ET
+endstream
+endobj
+1 0 obj
+<</Type /Pages
+/Kids [3 0 R 5 0 R 7 0 R ]
+/Count 3
+>>
+endobj
+9 0 obj
+<<
+/Type /Font
+/BaseFont /Helvetica
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+10 0 obj
+<<
+/Type /Font
+/BaseFont /Helvetica-Bold
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+11 0 obj
+<<
+/Type /Font
+/BaseFont /Helvetica-Oblique
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+12 0 obj
+<<
+/Type /Font
+/BaseFont /Helvetica-BoldOblique
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+13 0 obj
+<<
+/Type /Font
+/BaseFont /Courier
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+14 0 obj
+<<
+/Type /Font
+/BaseFont /Courier-Bold
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+15 0 obj
+<<
+/Type /Font
+/BaseFont /Courier-Oblique
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+16 0 obj
+<<
+/Type /Font
+/BaseFont /Courier-BoldOblique
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+17 0 obj
+<<
+/Type /Font
+/BaseFont /Times-Roman
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+18 0 obj
+<<
+/Type /Font
+/BaseFont /Times-Bold
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+19 0 obj
+<<
+/Type /Font
+/BaseFont /Times-Italic
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+20 0 obj
+<<
+/Type /Font
+/BaseFont /Times-BoldItalic
+/Subtype /Type1
+/Encoding /WinAnsiEncoding
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+21 0 obj
+<<
+/Type /Font
+/BaseFont /ZapfDingbats
+/Subtype /Type1
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+22 0 obj
+<<
+/Type /Font
+/BaseFont /Symbol
+/Subtype /Type1
+/FirstChar 32
+/LastChar 255
+>>
+endobj
+2 0 obj
+<<
+/ProcSet [/PDF /Text /ImageB /ImageC /ImageI]
+/Font <<
+/F1 9 0 R
+/F2 10 0 R
+/F3 11 0 R
+/F4 12 0 R
+/F5 13 0 R
+/F6 14 0 R
+/F7 15 0 R
+/F8 16 0 R
+/F9 17 0 R
+/F10 18 0 R
+/F11 19 0 R
+/F12 20 0 R
+/F13 21 0 R
+/F14 22 0 R
+>>
+/XObject <<
+>>
+>>
+endobj
+23 0 obj
+<<
+/Producer (jsPDF 2.5.1)
+/CreationDate (D:20240514182053+05'30')
+>>
+endobj
+24 0 obj
+<<
+/Type /Catalog
+/Pages 1 0 R
+/OpenAction [3 0 R /FitH null]
+/PageLayout /OneColumn
+>>
+endobj
+xref
+0 25
+0000000000 65535 f 
+0000006677 00000 n 
+0000008510 00000 n 
+0000000015 00000 n 
+0000000152 00000 n 
+0000003105 00000 n 
+0000003242 00000 n 
+0000005588 00000 n 
+0000005725 00000 n 
+0000006746 00000 n 
+0000006871 00000 n 
+0000007002 00000 n 
+0000007136 00000 n 
+0000007274 00000 n 
+0000007398 00000 n 
+0000007527 00000 n 
+0000007659 00000 n 
+0000007795 00000 n 
+0000007923 00000 n 
+0000008050 00000 n 
+0000008179 00000 n 
+0000008312 00000 n 
+0000008414 00000 n 
+0000008762 00000 n 
+0000008848 00000 n 
+trailer
+<<
+/Size 25
+/Root 24 0 R
+/Info 23 0 R
+/ID [ <23ED1C113678DB2474506F20DC67DBEE> <23ED1C113678DB2474506F20DC67DBEE> ]
+>>
+startxref
+8952
+%%EOF
